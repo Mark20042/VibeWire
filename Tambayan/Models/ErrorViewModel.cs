@@ -1,4 +1,4 @@
-namespace VibeWire.Models
+namespace Tambayan.Models
 {
     public class ErrorViewModel
     {

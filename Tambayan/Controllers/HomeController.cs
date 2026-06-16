@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using VibeWire.Models;
+using Tambayan.Models;
 
-namespace VibeWire.Controllers
+namespace Tambayan.Controllers
 {
     public class HomeController : Controller
     {

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Tambayan</title>
+    <link href="~/images/tambayan.svg" rel="icon" type="image" />
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/tailwind.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Tambayan.styles.css" asp-append-version="true" />
+</head>
+<body>
+
+    <div id="wrapper" class="pt-[--m-top]">
+
+        @* top bar *@
+        <partial name="Navigation/_TopBar" />
+
+        @* Side bar left *@
+       <partial name="Navigation/_SideBar" />
+
+        <main>
+            @RenderBody()
+        </main>
+    </div>
+
+    @* Backing Scripts *@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @* Ionicons  *@
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    @* Asset Script *@
+    <script src="~/js/uikit.min.js"></script>
+    <script src="~/js/simplebar.js"></script>
+    <script src="~/js/script.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
