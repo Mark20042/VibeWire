@@ -2,7 +2,167 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<main id="site__main" class="2xl:ml-[--w-side] xl:ml-[--w-side-sm] p-2.5 h-[calc(100vh-var(--m-top))] mt-[--m-top]">
+
+    <div class="lg:flex 2xl:gap-16 gap-12 max-w-[1065px] mx-auto w-full" id="js-oversized">
+
+        <div class="max-w-[680px] mx-auto flex-1 w-full space-y-6">
+
+            <div>
+                <h3 class="font-extrabold text-2xl text-black hidden">
+                    Stories
+                </h3>
+
+                <div class="relative" tabindex="1" uk-slider="auto play: true;finite: true" uk-lightbox="">
+                    <div class="py-5 uk-slider-container">
+                        <ul class="uk-slider-items w-[calc(100%+14px)]" uk-scrollspy="target: li; cls:uk-animation-scale-up; delay: 20;repeat:true">
+                            <li class="md:pr-3" uk-scrollspy-class="uk-animation-fade">
+                                <div class="md:w-16 md:h-16 w-12 h-12 rounded-full relative border-2 border-dashed grid place-items-center bg-slate-50 hover:bg-slate-100 transition cursor-pointer border-slate-300 shrink-0"
+                                     uk-toggle="target: #create-story">
+                                    <ion-icon name="camera" class="text-2xl text-slate-500"></ion-icon>
+                                </div>
+                            </li>
+                            <li class="md:pr-3 pr-2 hover:scale-[1.15] hover:-rotate-2 duration-300">
+                                <a href="~/images/avatar/kimminju.jpg">
+                                    <div class="md:w-16 md:h-16 w-12 h-12 relative md:border-4 border-2 shadow-sm border-blue-600 rounded-full overflow-hidden">
+                                        <img src="~/images/avatar/kimminju.jpg" class="object-cover w-full h-full" />
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="md:pr-3 pr-2 hover:scale-[1.15] hover:-rotate-2 duration-300">
+                                <a href="~/images/avatar/kimminju.jpg">
+                                    <div class="md:w-16 md:h-16 w-12 h-12 relative md:border-4 border-2 shadow-sm border-blue-600 rounded-full overflow-hidden">
+                                        <img src="~/images/avatar/user.png" class="object-cover w-full h-full" />
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="md:pr-3 pr-2">
+                                <div class="md:w-16 md:h-16 w-12 h-12 bg-slate-200/60 rounded-full animate-pulse"></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-sm border border-slate-100 md:p-4 p-3 text-sm font-medium">
+                <div class="flex items-center md:gap-3 gap-2">
+                    <img src="~/images/avatar/formal.png" class="w-9 h-9 rounded-full object-cover hidden sm:block" />
+
+                    <div class="flex-1 bg-slate-100 hover:bg-slate-200 transition-colors rounded-full cursor-pointer" uk-toggle="target: #create-post">
+                        <div class="py-2.5 px-5 text-slate-500 text-left">What do you have in mind?</div>
+                    </div>
+                    <div class="cursor-pointer p-2 rounded-full transition-all bg-pink-50 hover:bg-pink-100" uk-toggle="target: #create-post">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-pink-600 fill-pink-200/70" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M15 8h.01" />
+                            <path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z" />
+                            <path d="M3.5 15.5l4.5 -4.5c.928 -.893 2.072 -.893 3 0l5 5" />
+                            <path d="M14 14l1 -1c.928 -.893 2.072 -.893 3 0l2.5 2.5" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-slate-50 border border-slate-100 rounded-xl p-5 text-sm font-medium text-slate-500 text-center shadow-sm hidden">
+                Currently, there are no posts available. Would you like to create the first one?
+            </div>
+
+            <div class="bg-white rounded-xl shadow-sm border border-slate-100 text-sm font-medium overflow-hidden">
+
+                @* Post heading *@
+                <div class="flex gap-3 sm:p-4 p-3 text-sm font-medium">
+                    <a href="#">
+                        <img src="~/images/avatar/kimminju.jpg" class="w-10 h-10 rounded-full object-cover" />
+                    </a>
+                    <div class="flex-1">
+                        <a href="#">
+                            <h4 class="text-black font-semibold">Kim Minju</h4>
+                            <div class="text-xs text-gray-400 mt-0.5">1 day ago</div>
+                        </a>
+                    </div>
+
+                    <div class="-mr-1">
+                        <button type="button" class="button-icon w-8 h-8 hover:bg-slate-100 rounded-full flex items-center justify-center transition">
+                            <ion-icon class="text-xl text-slate-600" name="ellipsis-horizontal"></ion-icon>
+                        </button>
+                        <div class="w-[245px] bg-white rounded-lg shadow-lg border border-slate-100 overflow-hidden" uk-dropdown="pos: bottom-right; animation: uk-animation-scale-up uk-transform-origin-top-right; animate-out: true; mode: click">
+                            <nav class="text-sm">
+                                <form>
+                                    <input type="hidden" name="postId" />
+                                    <button type="submit" class="w-full flex items-center gap-2 px-4 py-2.5 hover:bg-slate-50 text-slate-700 transition">
+                                        <ion-icon name="lock-closed-outline" class="text-lg"></ion-icon> Set as private
+                                    </button>
+                                </form>
+                                <hr class="border-slate-100">
+                                <form asp-controller="Home" asp-action="Delete">
+                                    <input type="hidden" name="postId" />
+                                    <button type="submit" class="w-full flex items-center gap-2 px-4 py-2.5 hover:bg-red-50 text-red-600 transition">
+                                        <ion-icon name="trash-bin-outline" class="text-lg"></ion-icon> Delete Post
+                                    </button>
+                                </form>
+                                <form asp-controller="Home" asp-action="Report">
+                                    <input type="hidden" name="postId" />
+                                    <button type="submit" class="w-full flex items-center gap-2 px-4 py-2.5 hover:bg-slate-50 text-slate-700 transition">
+                                        <ion-icon name="flag-outline" class="text-lg"></ion-icon> Report
+                                    </button>
+                                </form>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+                @* Post content *@
+                <div class="sm:px-4 p-3 pt-0 w-full">
+                    <p class="font-normal text-slate-800 leading-relaxed">
+                        Crush mo nak? Girlfriend ko ma.. 🥰
+                    </p>
+                </div>
+
+                <div class="relative w-full lg:h-96 h-64 border-y border-slate-100 bg-slate-50">
+                    <img src="~/images/posts/kim_minju.jpg" class="w-full h-full object-cover" />
+                </div>
+
+                @* Icons/Actions *@
+                <div class="sm:p-4 p-3 flex items-center gap-5 text-sm font-semibold border-b border-slate-50">
+                    <div class="flex items-center gap-2 hover:text-red-500 transition cursor-pointer">
+                        <div class="w-8 h-8 rounded-full bg-red-50 text-red-500 flex items-center justify-center">
+                            <ion-icon class="text-lg" name="heart"></ion-icon>
+                        </div>
+                        <span class="text-slate-600">24</span>
+                    </div>
+
+                    <div class="flex items-center gap-2 hover:text-blue-500 transition cursor-pointer">
+                        <div class="w-8 h-8 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center">
+                            <ion-icon class="text-lg" name="chatbubble-ellipses-outline"></ion-icon>
+                        </div>
+                        <span class="text-slate-600">5</span>
+                    </div>
+
+                    <div class="ml-auto">
+                        <button class="w-8 h-8 rounded-full hover:bg-slate-100 text-slate-600 flex items-center justify-center transition">
+                            <ion-icon class="text-lg" name="bookmark-outline"></ion-icon>
+                        </button>
+                    </div>
+                </div>
+
+                @* Add comment section *@
+                <div class="sm:px-4 sm:py-3 p-3 bg-slate-50/50 flex items-center gap-3">
+                    <img src="~/images/avatar/formal.png" class="w-8 h-8 rounded-full object-cover shadow-sm" />
+
+                    <div class="flex-1 relative bg-white border border-slate-200 rounded-full overflow-hidden flex items-center focus-within:border-slate-300 transition">
+                        <input type="text" placeholder="Add Comment..." class="w-full bg-transparent px-4 py-2 text-sm focus:outline-none placeholder-slate-400" />
+                    </div>
+
+                    <button class="text-sm font-semibold rounded-full py-1.5 px-4 bg-slate-200 hover:bg-slate-300 text-slate-700 transition">Post</button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="flex-1 hidden lg:block"></div>
+    </div>
+</main>
+
+<partial name="Modals/_CreateStory"></partial>
+    <partial name="Modals/_CreatePost"></partial>
