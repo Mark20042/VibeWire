@@ -61,11 +61,13 @@
 
                 @* profile dropdown *@
                 <div class="relative block">
-                    <div class="rounded-full p-0.5 bg-slate-100 hover:bg-slate-200 transition cursor-pointer shrink-0">
-                        <img src="~/images/avatar/formal.png" alt="User Avatar" class="sm:w-8 sm:h-8 w-7 h-7 rounded-full shadow-sm shrink-0 object-cover block" />
+
+                    <div class="rounded-full p-1 pr-2 bg-slate-100 hover:bg-slate-200 transition cursor-pointer shrink-0 flex items-center gap-1">
+                        <img src="~/images/avatar/formal.png" alt="User Avatar" class="sm:w-8 sm:h-8 w-10 h-10 rounded-full shadow-sm shrink-0 object-cover block" />
+                        <ion-icon name="chevron-down-outline" class="text-slate-500 text-sm"></ion-icon>
                     </div>
 
-                    <div class="hidden bg-white rounded-lg drop-shadow-xl w-64 border border-slate-100 p-4" uk-drop="offset:6; pos: bottom-right; animate-out: true;">
+                    <div class="hidden bg-white rounded-lg drop-shadow-xl w-64 border border-slate-100 p-4" uk-drop="offset:6; pos: bottom-right; mode: click; animate-out: true;">
                         <div class="flex items-center gap-3 pb-3 border-b border-slate-100">
                             <img src="~/images/avatar/formal.png" alt="User Avatar" class="w-10 h-10 rounded-full shadow-sm object-cover" />
                             <div class="overflow-hidden">
@@ -75,14 +77,17 @@
                         </div>
 
                         <nav class="mt-2 space-y-1">
+
                             <a href="#" class="flex items-center gap-2.5 hover:bg-slate-50 p-2 rounded-md text-sm text-slate-700 transition no-underline">
-                                <ion-icon name="settings-outline" class="text-lg text-slate-500"></ion-icon>
+                                <ion-icon name="person-outline" class="text-lg text-slate-500"></ion-icon>
                                 My Account
                             </a>
+
                             <a href="#" class="flex items-center gap-2.5 hover:bg-slate-50 p-2 rounded-md text-sm text-red-600 transition no-underline">
                                 <ion-icon name="exit-outline" class="text-lg text-red-500"></ion-icon>
                                 Log Out
                             </a>
+
                         </nav>
                     </div>
                 </div>
