@@ -15,6 +15,13 @@ namespace Tambayan.Data.Models
 
         public DateTime DateUpdated { get; set; }
 
+
+        // Foreign Key
+        public int UserId { get; set; }
+
+        // Navigation Property
+        public User User { get; set; } = null!;
+
         public virtual ICollection<PostImage> Images { get; set; } = new List<PostImage>();
     }
 }

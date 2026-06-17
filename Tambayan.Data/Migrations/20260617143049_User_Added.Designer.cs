@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Tambayan.Data;
 
@@ -11,9 +12,11 @@ using Tambayan.Data;
 namespace Tambayan.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260617143049_User_Added")]
+    partial class User_Added
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,12 +46,7 @@ namespace Tambayan.Migrations
                     b.Property<int>("NoReports")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Posts");
                 });
@@ -75,7 +73,7 @@ namespace Tambayan.Migrations
 
                     b.HasIndex("PostId");
 
-                    b.ToTable("PostImages");
+                    b.ToTable("PostImage");
                 });
 
             modelBuilder.Entity("Tambayan.Data.Models.User", b =>
@@ -98,17 +96,6 @@ namespace Tambayan.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Tambayan.Data.Models.Post", b =>
-                {
-                    b.HasOne("Tambayan.Data.Models.User", "User")
-                        .WithMany("Posts")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("Tambayan.Data.Models.PostImage", b =>
                 {
                     b.HasOne("Tambayan.Data.Models.Post", "Post")
@@ -123,11 +110,6 @@ namespace Tambayan.Migrations
             modelBuilder.Entity("Tambayan.Data.Models.Post", b =>
                 {
                     b.Navigation("Images");
-                });
-
-            modelBuilder.Entity("Tambayan.Data.Models.User", b =>
-                {
-                    b.Navigation("Posts");
                 });
 #pragma warning restore 612, 618
         }

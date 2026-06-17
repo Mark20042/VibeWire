@@ -14,10 +14,11 @@ namespace Tambayan.Data.Models
         public DateTime DateAdded { get; set; } = DateTime.UtcNow;
 
 
-        [ForeignKey("Post")]
+        // Foreign Key
         public int PostId { get; set; }
 
-        
+
+        // Navigation Property
         public virtual Post Post { get; set; } = null!;
     }
 }
