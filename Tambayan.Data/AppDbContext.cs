@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Tambayan.Data.Models;
 
 namespace Tambayan.Data
 {
@@ -8,5 +9,9 @@ namespace Tambayan.Data
         {
             
         }
+
+        public DbSet<Post> Posts { get; set; } = null!;
+
+
     }
 }
